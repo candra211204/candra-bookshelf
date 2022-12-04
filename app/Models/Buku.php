@@ -14,4 +14,8 @@ class Buku extends Model
     public function kategori() {
         return $this->belongsTo(Kategori::class);
     }
+
+    public function total() {
+        return $this->hasMany(Total::class);
+    }
 }

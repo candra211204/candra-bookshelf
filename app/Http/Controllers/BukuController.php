@@ -49,7 +49,7 @@ class BukuController extends Controller
             'penulis' => 'required',
             'total_pembaca' => 'required',
             'tanggal' => 'required',
-            'cover' => 'required|image',
+            'cover' => 'required',
             'status' => 'required',
         ]);
 

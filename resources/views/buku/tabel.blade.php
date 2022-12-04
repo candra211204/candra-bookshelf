@@ -39,6 +39,8 @@
                             <td>{{ $li->total_pembaca }}</td>
                             <td>{{ $li->tanggal }}</td>
                             <td>
+                                {{-- Menampilkan pdf --}}
+                                {{-- <iframe src="{{ asset('storage/'.$li->cover) }}" title="description"></iframe> --}}
                                 <img src="{{ asset('storage/'.$li->cover) }}" alt="" width="100">
                             </td>
                             <td>{{ $li->status }}</td>

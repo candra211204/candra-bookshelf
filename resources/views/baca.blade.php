@@ -11,21 +11,15 @@
             </div>
             <div class="card-body">
                 <p><b class="me-3">Isi :</b>{{ $data->isi }}</p>
-                <div class="trigerr">
-                    <form action="{{ url('beranda/'.$data->id) }}" method="POST">
+                {{-- <div class="trigerr">
+                    <form action="{{ url('beranda') }}" method="POST">
                         @csrf
-                        @method('PUT')
-                        <input type="hidden" name="kategori_id" value="{{ $data->kategori_id }}">
-                        <input type="hidden" name="judul" value="{{ $data->judul }}">
-                        <input type="hidden" name="isi" value="{{ $data->isi }}">
-                        <input type="hidden" name="penulis" value="{{ $data->penulis }}">
-                        <input type="hidden" name="tanggal" value="{{ $data->tanggal }}">
-                        <input type="hidden" name="cover" value="{{ $data->cover }}">
-                        <input type="hidden" name="status" value="{{ $data->status }}">
-                        <input type="text" name="total_pembaca" value="{{ $data->total_pembaca }}">
+                        <input type="text" name="user_id" value="{{ $user->id }}">
+                        <input type="text" name="buku_id" value="{{ $buku->id }}">
+                        <input type="text" name="status" value="sudah_dibaca">
                         <button class="btn btn-outline-primary form-control" type="submit">Selesai Baca</button>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
