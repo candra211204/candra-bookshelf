@@ -57,6 +57,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/beranda') }}">Beranda</a>
+                                    <a class="dropdown-item" href="{{ url('/buku') }}">Buku</a>
+                                    @if (Auth::user()->role == 'admin')
+                                        <a class="dropdown-item" href="{{ url('/kategori') }}">Kategori</a>
+                                        <a class="dropdown-item" href="{{ url('/user') }}">User</a>
+                                    @endif
+                                    <hr>    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
