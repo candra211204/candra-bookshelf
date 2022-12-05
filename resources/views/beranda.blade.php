@@ -6,19 +6,21 @@
 <div class="container">
     <div class="row justify-content-center">
         {{-- Filter --}}
-        <div class="row">
-            <div class="col-md-6">
-                <form action="" method="GET">
-                    <select name="kategori">
+        <form class="mb-5" action="" method="GET">
+            <div class="row">
+                <div class="col-md-6">
+                    <select class="form-control" name="kategori">
+                        <option value="all">All</option>
                         @foreach ($kategori as $kt)
                             <option value="{{ $kt->id }}">{{ $kt->nama }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="col-md-6">
                     <button class="btn btn-outline-primary" type="submit">Cari</button>
-                </form>
+                </div>
             </div>
-            <div class="col-md-6"></div>
-        </div>
+        </form>
         {{-- Filter End --}}
         <div class="row">
             @foreach ($buku as $li)

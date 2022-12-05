@@ -18,10 +18,10 @@ class BerandaController extends Controller
     public function index(Request $request)
     {
         $kategori = Kategori::all();
-        if($request->kategori){
-            $buku = Buku::where('kategori_id', '=', $request->kategori)->get();
-        }else{  
+        if($request->kategori == 'all'){
             $buku = Buku::where('status', '=', 'aktif')->get();
+        }elseif($request->kategori){  
+            $buku = Buku::where('kategori_id', '=', $request->kategori)->where('status', '=', 'aktif')->get();
         }
         return view('beranda', compact('buku', 'kategori'));
     }
