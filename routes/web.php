@@ -32,6 +32,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
     
+    // Rute baca
+    Route::get('/baca/{id}', [BacaController::class, 'baca']);
+    
     // Rute tabel kategori
     Route::resource('kategori', KategoriController::class)->middleware('editor_user');
     Route::get('hapusKategori/{id}', [KategoriController::class, 'destroy'])->middleware('editor_user');
@@ -58,4 +61,3 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user', UserController::class)->middleware('editor_user');
 });
 
-Route::get('/baca/{id}', [BacaController::class, 'baca']);

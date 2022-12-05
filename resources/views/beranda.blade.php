@@ -33,10 +33,12 @@
                         <h6><b class="me-2">Kategori :</b>{{ $li->kategori->nama}}</h6>
                         <h6><b class="me-2">Penulis :</b>{{ $li->penulis }}</h6>
                         <h6><b class="me-2">Tanggal ditambahkan :</b>{{ $li->tanggal }}</h6>
-                        @if (DB::table('totals')->where('buku_id', '=', $li->id)->where('user_id', '=', Auth::user()->id)->exists())
-                            <h6><b class="me-2">Status : </b>Terbaca</h6>
-                        @else 
-                            <h6><b class="me-2">Status : </b>Belum Terbaca</h6>
+                        @if (Auth::user())
+                            @if(DB::table('totals')->where('buku_id', '=', $li->id)->where('user_id', '=', Auth::user()->id)->exists()) 
+                                <h6><b class="me-2">Status : </b>Terbaca</h6>
+                            @else
+                                <h6><b class="me-2">Status : </b>Belum Terbaca</h6>
+                            @endif
                         @endif
                         <h6><b class="me-2">Total Pembaca :</b>{{ DB::table('totals')->where('buku_id', '=', $li->id)->count() }}</h6>
                         <div class="baca mt-5">
