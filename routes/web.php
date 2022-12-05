@@ -26,8 +26,7 @@ Route::get('/', function () {
 // Rute ke halaman beranda
 Route::get('beranda', [BerandaController::class, 'index']);
 
-Auth::routes();
-
+// Rute halaman home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
@@ -50,14 +49,15 @@ Route::middleware(['auth'])->group(function () {
 
     // Form edit buku
     Route::get('/edit/buku/{id}', [BukuController::class, 'edit'])->middleware('editor_user');
-
+    
     // Update buku
     Route::put('/buku/{id}', [BukuController::class, 'update'])->middleware('editor_user');
-
+    
     // Hapus buku
     Route::get('/buku/{id}', [BukuController::class, 'destroy'])->middleware('editor_user');
-
+    
     // Rute tabel user
     Route::resource('user', UserController::class)->middleware('editor_user');
 });
 
+Auth::routes();

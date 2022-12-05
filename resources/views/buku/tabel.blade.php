@@ -21,7 +21,6 @@
                             <th scope="col">Judul</th>
                             <th scope="col">Isi</th>
                             <th scope="col">Penulis</th>
-                            <th scope="col">Total Pembaca</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Cover</th>
                             <th scope="col">Status</th>
@@ -36,7 +35,6 @@
                             <td>{{ $li->judul }}</td>
                             <td>{{ $li->isi }}</td>
                             <td>{{ $li->penulis }}</td>
-                            <td>{{ $li->total_pembaca }}</td>
                             <td>{{ $li->tanggal }}</td>
                             <td>
                                 {{-- Menampilkan pdf --}}

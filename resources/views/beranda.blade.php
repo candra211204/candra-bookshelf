@@ -11,7 +11,7 @@
                     Pilih Kategori
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url('/beranda') }}">All</a></li>
+                    <li><a class="dropdown-item" href="{{ url('beranda') }}">All</a></li>
                     @foreach ($kategori as $kt)
                         <li><a class="dropdown-item" href="{{ url('beranda?kategori='.$kt->id) }}">{{ $kt->nama }}</a></li>
                     @endforeach
