@@ -15,11 +15,14 @@ class BerandaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $buku = Buku::where('status', 'aktif')->get();
-        $kategori = kategori::all();
-        
+        $kategori = Kategori::all();
+        if($request->kategori){
+            $buku = Buku::where('kategori_id', '=', $request->kategori)->get();
+        }else{  
+            $buku = Buku::where('status', '=', 'aktif')->get();
+        }
         return view('beranda', compact('buku', 'kategori'));
     }
 

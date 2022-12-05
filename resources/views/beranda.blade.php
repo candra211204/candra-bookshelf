@@ -5,6 +5,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        {{-- Filter --}}
+        <div class="row">
+            <div class="col-md-6">
+                <form action="" method="GET">
+                    <select name="kategori">
+                        @foreach ($kategori as $kt)
+                            <option value="{{ $kt->id }}">{{ $kt->nama }}</option>
+                        @endforeach
+                    </select>
+                    <button class="btn btn-outline-primary" type="submit">Cari</button>
+                </form>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+        {{-- Filter End --}}
         <div class="row">
             @foreach ($buku as $li)
             <div class="col-md-4">
