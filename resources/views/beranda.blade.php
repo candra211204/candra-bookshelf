@@ -5,19 +5,6 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="filterr mb-5">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pilih Kategori
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url('beranda') }}">All</a></li>
-                    @foreach ($kategori as $kt)
-                        <li><a class="dropdown-item" href="{{ url('beranda?kategori='.$kt->id) }}">{{ $kt->nama }}</a></li>
-                    @endforeach
-                </ul>
-            </div>  
-        </div>
         <div class="row">
             @foreach ($buku as $li)
             <div class="col-md-4">
@@ -35,9 +22,9 @@
                         <h6><b class="me-2">Tanggal ditambahkan :</b>{{ $li->tanggal }}</h6>
                         @if (Auth::user())
                             @if(DB::table('totals')->where('buku_id', '=', $li->id)->where('user_id', '=', Auth::user()->id)->exists()) 
-                                <h6><b class="me-2">Status : </b>Terbaca</h6>
+                                <h6><b class="me-2">Status :</b>Terbaca</h6>
                             @else
-                                <h6><b class="me-2">Status : </b>Belum Terbaca</h6>
+                                <h6><b class="me-2">Status :</b>Belum Terbaca</h6>
                             @endif
                         @endif
                         <h6><b class="me-2">Total Pembaca :</b>{{ DB::table('totals')->where('buku_id', '=', $li->id)->count() }}</h6>

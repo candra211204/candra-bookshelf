@@ -18,21 +18,25 @@
                             <th scope="col">Email</th>
                             <th scope="col">Role</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Aksi</th>
+                            @if (Auth::user()->role == 'admin')
+                                <th scope="col">Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $li)
-                        <tr>
-                            <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $li->name }}</td>
-                            <td>{{ $li->email }}</td>
-                            <td>{{ $li->role }}</td>
-                            <td>{{ $li->status }}</td>
-                            <td>
-                                <a class="btn btn-outline-primary" href="{{ url('user/'.$li->id.'/edit') }}">Edit</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $li->name }}</td>
+                                <td>{{ $li->email }}</td>
+                                <td>{{ $li->role }}</td>
+                                <td>{{ $li->status }}</td>
+                                @if (Auth::user()->role == 'admin')
+                                    <td>
+                                        <a class="btn btn-outline-primary" href="{{ url('edit/'.'user/'.$li->id) }}">Edit</a>
+                                    </td>
+                                @endif
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

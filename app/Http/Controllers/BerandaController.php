@@ -6,6 +6,7 @@ use App\Models\Buku;
 use App\Models\Kategori;
 use App\Models\Total;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BerandaController extends Controller
 {
@@ -14,18 +15,25 @@ class BerandaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // Pengkondisian jika cari berdasarkan kategori buku maka akan muncul berdasarkan kategori jika tidak maka akan muncul semua buku yang berstatus aktif
-        if($request->has('kategori')) {
-            $buku = Buku::where('kategori_id', $request->kategori)->where('status', 'aktif')->get();
-        }else{
-            $buku = Buku::where('status', 'aktif')->get();
-        }
-
-        // Ambil semua data dari tabel kategori
+        $buku = Buku::where('status', 'aktif')->get();
         $kategori = kategori::all();
+        
         return view('beranda', compact('buku', 'kategori'));
+    }
+
+    public function baca($id)
+    {
+        $data = Buku::findOrFail($id);
+        $total = Total::where('buku_id', '=', $id)->where('user_id', '=', Auth::user()->id)->exists();
+        if(!$total){
+            Total::create([
+                'buku_id' => $id, 
+                'user_id' => Auth::user()->id,
+            ]);
+        }
+        return view('baca', compact('data'));
     }
 }
 

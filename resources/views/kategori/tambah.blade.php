@@ -10,7 +10,7 @@
                 <h5>Tambah Data Kategori</h5>
             </div>
             <div class="card-body">
-                <a class="btn btn-outline-primary mb-5" href="{{ url('/kategori') }}">Kembali</a>
+                <a class="btn btn-outline-primary mb-5" href="{{ url('kategori') }}">Kembali</a>
                 <form action="{{ route('kategori.store') }}" method="POST">
                 @csrf
                     <div class="mb-3">

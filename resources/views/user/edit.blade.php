@@ -10,7 +10,7 @@
                 <h5>Edit Data Kategori</h5>
             </div>
             <div class="card-body">
-                <a class="btn btn-outline-primary mb-5" href="{{ url('/user') }}">Kembali</a>
+                <a class="btn btn-outline-primary mb-5" href="{{ url('user') }}">Kembali</a>
                 <form action="{{ url('user/'.$data->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -33,7 +33,7 @@
                         <label class="form-label">Status</label>
                         <select class="form-control" name="status">
                             <option value="aktif">Aktif</option>
-                            <option value="tidak">Tidak</option>
+                            <option value="banned">Tidak</option>
                         </select>
                     </div>
                     <button class="btn btn-outline-primary" type="submit">Tambah</button>

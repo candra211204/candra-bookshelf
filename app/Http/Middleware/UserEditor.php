@@ -18,11 +18,10 @@ class UserEditor
     public function handle(Request $request, Closure $next)
     {
         // Pengkondisian untuk role editor dan user ke tabel kategori
-        if(Auth::user()->role == 'editor'){
+        if(Auth::user()->role == 'editor' && 'user'){
             abort(404);
-        }elseif(Auth::user()->role == 'user'){
-            abort(404);
+        }else{
+            return $next($request);
         }
-        return $next($request);
     }
 }

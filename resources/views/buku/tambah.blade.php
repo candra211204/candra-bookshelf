@@ -10,7 +10,7 @@
                 <h5>Tambah Data Buku</h5>
             </div>
             <div class="card-body">
-                <a class="btn btn-outline-primary mb-5" href="{{ url('/buku') }}">Kembali</a>
+                <a class="btn btn-outline-primary mb-5" href="{{ url('buku') }}">Kembali</a>
                 <form action="{{ url('buku') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="mb-3">
@@ -33,9 +33,6 @@
                     <div class="mb-3">
                         <label class="form-label">Penulis</label>
                         <input class="form-control" type="text" name="penulis" required>
-                    </div>
-                    <div class="mb-3">
-                        <input class="form-control" type="hidden" name="total_pembaca" value="0">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tanggal</label>

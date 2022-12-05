@@ -10,7 +10,7 @@
                 <h5>Edit Data Kategori</h5>
             </div>
             <div class="card-body">
-                <a class="btn btn-outline-primary mb-5" href="{{ url('/kategori') }}">Kembali</a>
+                <a class="btn btn-outline-primary mb-5" href="{{ url('kategori') }}">Kembali</a>
                 <form action="{{ url('kategori/'.$data->id) }}" method="POST">
                 @csrf
                 @method('PUT')

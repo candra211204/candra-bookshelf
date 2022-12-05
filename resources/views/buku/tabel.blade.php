@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 @if (Auth::user()->role == 'admin')
-                    <a class="btn btn-outline-primary mb-5" href="{{ url('buku/tambah') }}">Tambah data kategori</a>
+                    <a class="btn btn-outline-primary mb-5" href="{{ url('buku/tambah') }}">Tambah data buku</a>
                 @endif
                 <table class="table">
                     <thead>
@@ -24,7 +24,9 @@
                             <th scope="col">Tanggal</th>
                             <th scope="col">Cover</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Aksi</th>
+                            @if (Auth::user()->role == 'admin')
+                                <th scope="col">Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -42,11 +44,6 @@
                                 <img src="{{ asset('storage/'.$li->cover) }}" alt="" width="100">
                             </td>
                             <td>{{ $li->status }}</td>
-                            @if (Auth::user()->role == 'editor' && 'user')
-                                <td>
-                                    <p>Anda harus login sebagai Admin agar bisa edit, hapus dan tambah buku</p>
-                                </td>
-                            @endif
                             @if (Auth::user()->role == 'admin')
                                 <td>
                                     <a class="btn btn-outline-primary" href="{{ url('edit/'.'buku/'.$li->id) }}">Edit</a>

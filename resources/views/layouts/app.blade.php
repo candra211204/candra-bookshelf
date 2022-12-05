@@ -21,6 +21,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <h5  class="ms-5">Bookshelf</h5>
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -61,8 +62,8 @@
                                     <a class="dropdown-item" href="{{ url('/buku') }}">Buku</a>
                                     @if (Auth::user()->role == 'admin')
                                         <a class="dropdown-item" href="{{ url('/kategori') }}">Kategori</a>
-                                        <a class="dropdown-item" href="{{ url('/user') }}">User</a>
                                     @endif
+                                    <a class="dropdown-item" href="{{ url('/user') }}">User</a>
                                     <hr>    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
